@@ -9,14 +9,8 @@ app.listen(3000, async()=>{
     console.log('server started');
     await connect();
     console.log('database connected');
-    // const tweet= await Tweet.create({
-    //     content: 'fourth tweet',
-    //     // userEmail: 'a@b.com'
-    // });
-    // const tweets= await Tweet.find({userEmail:'a@b.com'});
+    
     const tweetrepo= new TweetRepository();
-//    const tweet= await tweetrepo.getAll(0,2);
-//    console.log(tweet[0]._id);
     const tweet=await tweetrepo.create({content: 'hey this is trial hook content'});
     console.log(tweet);
 });
