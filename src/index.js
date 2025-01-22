@@ -9,6 +9,6 @@ app.listen(3000, async()=>{
     await connect();
     console.log('database connected');
     let ser= new service();
-    const tweet=ser.create({content: 'heyy #hi'});
+    const tweet=ser.create({content: 'heyy #AMAZING'});
     
 });
