@@ -9,13 +9,13 @@ const opts={
     secretOrKey: 'twitter_secret'
 }
 
-export const passportAuth= (passport)=>{
+export const passportAuth = (passport) => {
     try {
-        passport.use(new JwtStrategy(opts, async (jwt_payload, done)=>{
-            const user= User.findById(jwt_payload.id);
-            if(!user){
-                document(null, false);
-            } else{
+        passport.use(new JwtStrategy(opts, async (jwt_payload, done) => {
+            const user = await User.findById(jwt_payload.id);
+            if(!user) {
+                done(null, false);
+            } else {
                 done(null, user);
             }
         }));
@@ -23,4 +23,5 @@ export const passportAuth= (passport)=>{
         console.log(error);
         throw error;
     }
+    
 }
